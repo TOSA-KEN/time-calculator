@@ -1,7 +1,7 @@
 'use strict';
 
 const prefix = 'time-calculator-' + self.registration.scope + '-';
-const cacheName = prefix + 'v1';
+const cacheName = prefix + 'v2';
 const entry = new URL('./index.html', self.registration.scope).href;
 const assets = [
   './index.html', './style.css', './app.js', './manifest.json',

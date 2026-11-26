@@ -6,6 +6,10 @@ const times = [
 ];
 const hint = document.querySelector('#hint');
 const result = document.querySelector('#minutes');
+const price = document.querySelector('#price');
+const plans = [...document.querySelectorAll('[name="plan"]')];
+const eventDay = document.querySelector('#event-day');
+const yen = new Intl.NumberFormat('ja-JP');
 const detail = document.querySelector('#detail');
 let active = 0;
 
@@ -19,6 +23,22 @@ function durationBetween(start, end) {
   if (end >= 1440) return null;
   const days = Math.ceil((start - end) / 1440);
   return end + days * 1440 - start;
+}
+
+function calculateFee(duration, plan, isEventDay) {
+  const extensions = Math.max(0, Math.ceil((duration - 40) / 60));
+  const isBottle = plan === 'bottle';
+  const hasDiscount = isBottle && isEventDay;
+  const base = hasDiscount ? 880 : 1500;
+  const extension = isBottle ? 2000 : 2800;
+  const limit = isBottle ? 5500 : 8800;
+  const reachesLimit = extensions >= (isBottle ? 2 : 3);
+  const amount = reachesLimit ? limit : base + extension * extensions;
+  const label = isBottle ? (hasDiscount ? 'ボトルキープ（8の日）' : 'ボトルキープ（通常日）') : '飲み放題';
+  const breakdown = reachesLimit ? `上限 ${yen.format(limit)}円`
+    : extensions ? `基本 ${yen.format(base)}円 ＋ 延長 ${yen.format(extension)}円 × ${extensions}`
+      : `最初の40分 ${yen.format(base)}円`;
+  return { amount, explanation: `${label} · ${breakdown}` };
 }
 
 function render() {
@@ -42,7 +62,11 @@ function render() {
     : reversed ? '終了時刻は開始時刻以降を入力してください'
       : 'テンキーで時刻を4桁入力';
   result.textContent = duration ?? '—';
-  detail.textContent = duration === null ? '' : Math.floor(duration / 60) + '時間 ' + duration % 60 + '分';
+  const plan = plans.find(option => option.checked)?.value;
+  const fee = plan && duration !== null ? calculateFee(duration, plan, eventDay.checked) : null;
+  price.textContent = fee ? yen.format(fee.amount) : '—';
+  detail.textContent = fee?.explanation ??
+    (plan ? '開始・終了時刻を入力してください' : '料金プランを選択してください');
 }
 
 function finishEntry() {
@@ -65,6 +89,9 @@ function backspace() {
   field.replace = false;
   render();
 }
+
+plans.forEach(plan => plan.addEventListener('change', render));
+eventDay.addEventListener('change', render);
 
 times.forEach((field, index) => {
   field.button.addEventListener('click', () => {

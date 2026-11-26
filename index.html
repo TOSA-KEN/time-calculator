@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f5f7fc">
-  <meta name="apple-mobile-web-app-title" content="滞在時間計算">
+  <meta name="theme-color" content="#fff8db">
+  <meta name="apple-mobile-web-app-title" content="教えて8チャン">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self'; form-action 'none'; object-src 'none'; base-uri 'none'">
-  <title>滞在時間計算</title>
+  <title>教えて8チャン</title>
   <link rel="manifest" href="./manifest.json">
   <link rel="apple-touch-icon" href="./icons/180.png">
   <link rel="icon" href="./icons/192.png">
@@ -18,20 +18,33 @@
   <main>
     <header>
       <img src="./icons/192.png" width="44" height="44" alt="">
-      <h1>滞在時間計算</h1>
+      <div><p class="brand">ハチハチ倶楽部</p><h1>教えて8チャン</h1></div>
     </header>
     <div class="layout">
       <section class="summary" aria-label="時刻と計算結果">
+        <fieldset class="plans">
+          <legend>料金プラン</legend>
+          <div class="plan-options">
+            <label><input type="radio" name="plan" value="free-flow">飲み放題</label>
+            <label><input type="radio" name="plan" value="bottle">ボトルキープ</label>
+          </div>
+        </fieldset>
+        <label class="event-day">
+          <span><strong>8の日</strong><small>8・18・28日 · ボトルキープ対象</small></span>
+          <input id="event-day" type="checkbox" role="switch">
+        </label>
         <div class="times" role="group" aria-label="入力する時刻を選択">
           <button class="time" id="start" type="button" aria-pressed="true"><span>開始時刻</span><strong>--:--</strong></button>
           <button class="time" id="end" type="button" aria-pressed="false"><span>終了時刻</span><strong>--:--</strong></button>
         </div>
         <p id="hint" aria-live="polite">テンキーで時刻を4桁入力</p>
-        <div class="result">
-          <span>滞在時間</span>
-          <output aria-label="滞在時間"><strong id="minutes">—</strong><span>分</span></output>
-          <div id="detail"></div>
-        </div>
+        <section class="result" aria-label="計算結果" aria-live="polite" aria-atomic="true">
+          <div class="totals">
+            <div><span>滞在時間</span><div class="amount"><strong id="minutes">—</strong><span>分</span></div></div>
+            <div><span>料金</span><div class="amount"><strong id="price">—</strong><span>円</span></div></div>
+          </div>
+          <div id="detail">プランを選択し、時刻を入力してください</div>
+        </section>
       </section>
       <section class="controls" aria-label="時刻入力">
         <div class="keys" role="group" aria-label="テンキー">
@@ -52,9 +65,9 @@
           <button type="button" id="now">現在時刻</button>
           <button type="button" id="clear">クリア</button>
         </div>
+        <footer id="offline" role="status"></footer>
       </section>
     </div>
-    <footer id="offline" role="status"></footer>
   </main>
 </body>
 </html>

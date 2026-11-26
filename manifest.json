@@ -1,13 +1,13 @@
 {
   "id": "./",
-  "name": "滞在時間計算",
-  "short_name": "滞在時間計算",
+  "name": "教えて8チャン",
+  "short_name": "教えて8チャン",
   "lang": "ja",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "theme_color": "#f5f7fc",
-  "background_color": "#f5f7fc",
+  "theme_color": "#fff8db",
+  "background_color": "#fff8db",
   "icons": [
     { "src": "./icons/192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "./icons/512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
