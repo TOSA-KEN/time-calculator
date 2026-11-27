@@ -20,6 +20,7 @@ body { margin: 0; }
 header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
 header img { border-radius: 12px; }
 header p { font-weight: 750; margin: 0 0 2px; font-size: .875rem; }
+header .welcome { margin: 4px 0 0; color: #594d31; }
 h1 { font-size: clamp(1.35rem, 4vw, 1.9rem); line-height: 1.12; margin: 0; }
 
 main, .display { display: grid; gap: 8px; align-content: start; }
@@ -70,4 +71,14 @@ button:focus-visible { outline: 2px solid var(--ink); outline-offset: -4px; }
   header { margin-bottom: 6px; }
   .keys button { min-height: 44px; }
   .panel strong, .panel output { font-size: clamp(2.55rem, 14vh, 4.25rem); }
+}
+
+@media (max-height: 650px) and (max-width: 659px) {
+  .panel { padding-block: 6px; }
+  header { margin-bottom: 7px; }
+}
+
+@media (orientation: landscape) and (max-height: 500px) and (min-width: 500px) {
+  header { position: relative; }
+  header .welcome { position: absolute; top: 50%; right: 0; margin: 0; transform: translateY(-50%); }
 }

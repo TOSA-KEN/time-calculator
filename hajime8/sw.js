@@ -1,6 +1,6 @@
 'use strict';
 
-const cacheName = 'hajime8-v2';
+const cacheName = 'hajime8-v3';
 const scope = self.registration.scope;
 const entry = new URL('index.html', scope).href;
 const assets = new Set([

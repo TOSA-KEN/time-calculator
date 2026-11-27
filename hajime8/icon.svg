@@ -1,13 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
   <rect width="512" height="512" fill="#ffce3c"/>
-  <g stroke="#242017" stroke-width="10" stroke-linecap="round">
-    <path d="m223 167-31-37m97 37 31-37" fill="none"/>
-    <ellipse cx="179" cy="243" rx="58" ry="36" transform="rotate(30 179 243)" fill="#fffdf5"/>
-    <ellipse cx="333" cy="243" rx="58" ry="36" transform="rotate(-30 333 243)" fill="#fffdf5"/>
-    <ellipse cx="256" cy="255" rx="76" ry="104" fill="#242017"/>
+  <ellipse cx="256" cy="268" rx="158" ry="143" fill="#ffe584"/>
+  <g fill="#fffdf5" stroke="#242017" stroke-width="9">
+    <ellipse cx="168" cy="260" rx="51" ry="33" transform="rotate(30 168 260)"/>
+    <ellipse cx="344" cy="260" rx="51" ry="33" transform="rotate(-30 344 260)"/>
   </g>
-  <path d="M256 193c17 0 29 11 29 25s-12 24-29 29c-17-5-29-15-29-29s12-25 29-25Zm0 54c22 7 35 20 35 38s-15 30-35 30-35-12-35-30 13-31 35-38Z"
-    fill="none" stroke="#ffce3c" stroke-width="17" stroke-linejoin="round"/>
-  <circle cx="192" cy="130" r="8" fill="#242017"/>
-  <circle cx="320" cy="130" r="8" fill="#242017"/>
+  <path d="M218 189q-8-35-34-47m110 47q8-35 34-47" fill="none" stroke="#242017" stroke-width="10" stroke-linecap="round"/>
+  <g fill="#242017">
+    <circle cx="184" cy="142" r="12"/>
+    <circle cx="328" cy="142" r="12"/>
+  </g>
+  <ellipse cx="256" cy="270" rx="92" ry="96" fill="#242017"/>
+  <path d="M174 273a82 85 0 0 0 164 0Z" fill="#ffd956"/>
+  <path d="M193 326q63 17 126 0" fill="none" stroke="#242017" stroke-width="12"/>
+  <rect x="163" y="177" width="186" height="135" rx="64" fill="#ffdf71" stroke="#242017" stroke-width="10"/>
+  <g fill="#242017">
+    <ellipse cx="224" cy="232" rx="8" ry="12"/>
+    <ellipse cx="288" cy="232" rx="8" ry="12"/>
+  </g>
+  <g fill="#ef9a6d">
+    <ellipse cx="199" cy="253" rx="12" ry="7"/>
+    <ellipse cx="313" cy="253" rx="12" ry="7"/>
+  </g>
+  <path d="M243 253q13 19 26 0" fill="none" stroke="#242017" stroke-width="7" stroke-linecap="round"/>
 </svg>
